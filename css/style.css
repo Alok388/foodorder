@@ -234,11 +234,11 @@ gap: 4rem;
     font-weight: 500;
     font-size: 1.5rem;
     transition: all 0.3s;
+    padding: 0.9rem;
 }
 
 .main-nav-link:hover, .main-nav-link:active{
 background-color: #cf711f;
-padding: 0.7rem;
 border-radius: 10px;
 color: #fff;
 }
