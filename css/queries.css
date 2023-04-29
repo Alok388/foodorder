@@ -1,0 +1,283 @@
+/* dont use px in media queries because that will not adjust according to the device width */
+
+@media screen and (max-width: 14870px) and (min-width: 1350px){
+    .hero{
+        padding: 0 4rem;
+    }
+}
+
+/* for below 1300px */
+@media (max-width:1350px){
+    .hero{
+        max-width:90rem ;
+        padding: 0 3.5rem;
+    }
+
+     .heading-primary{
+        font-size: 3.4rem;
+    }
+
+
+    .heading-tertiary{
+        font-size: 1.9rem;
+        line-height: 1.8;
+    } 
+
+    .gallery{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+
+/* for below 1200 px (tablets) */
+
+@media (max-width:1200px){
+        html{
+            font-size: 75%;
+           
+        }
+
+        html,body{
+            overflow-x: hidden;
+        }
+
+        .heading-secondary{
+            font-size: 2.4rem;
+        line-height: 1;
+    }
+
+    .main-nav-list{
+        gap: 2.8rem;
+    }
+
+    .testimonials-container{
+        padding: 8rem 4rem;
+    }
+}
+
+@media (max-width:990px){
+    html{
+        font-size: 65%;
+    }
+
+    .hero{
+        grid-template-columns: 1fr;
+        padding: 0 5.4rem;
+        gap: 6.2rem;
+    }
+    .hero-img{
+        width: 70%;
+    }
+
+    .hero-text-box,.hero-img-box{
+        text-align: center;
+    }
+
+    .delivered-meals{
+        justify-content: center;
+        margin-top: 4rem;
+    }
+
+     .logos img{
+        height: 1.9rem;
+    }
+
+    .step-number{
+        font-size: 5.2rem;
+     }
+
+     .meal-content{
+        padding: 1.4rem 2.2rem 2.2rem 2.2rem;
+     }
+
+     .section-testimonials{
+        grid-template-columns: 1fr;
+     }
+     .gallery{
+        grid-template-columns: repeat(6,1fr);
+    }
+
+    .cta{
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .cta-form{
+        grid-template-columns: 1fr;
+    }
+
+    .btn--form{
+        margin-top: 1.2rem;
+    }
+
+    .pricing-plan{
+        width: 100%;
+    }
+
+    /************** MOBILE NAVIGATION **********/
+.btn-mobile-nav{
+   display: block; /* display them fro mobile view */
+   z-index: 9999;
+      }
+
+      .main-nav{
+        background-color: rgba(255, 255, 255, 0.97);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.5s ease-in;
+        transform: translateX(100%); /* set 100% because  we want when clicked on nav it should come from right side */
+        /* hide navigation */
+        /* if we use display none then tranistion animation is not allowed so used opacity */
+        /* display: none; */
+
+       /* 1) hide it visuually */
+        opacity: 0;
+        /* 2) make it unaccessible to mouse and keyboard  */
+        pointer-events: none;
+        /* 3)hide it from screen readers */
+        visibility: hidden;
+      }
+
+      .nav-open .main-nav {
+        opacity: 1;
+        pointer-events: auto;
+        visibility: visible;
+        transform: translateX(0);
+      }
+
+      .main-nav-list{
+        flex-direction: column;
+        gap: 4.8rem;
+
+      }
+
+      .nav-open .icon-mobile-nav[name="close-outline"]{
+        display: block; 
+         }
+        
+         .nav-open .icon-mobile-nav[name="menu-outline"]{
+            display: none; 
+             }
+
+      .main-nav-link:link, .main-nav-link:visited{
+        font-size: 2.5rem;
+      }
+
+
+
+}
+
+/* for below 760 px ( samller tablets) */
+
+@media (max-width:760px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .grid--3--cols, .grid--4--cols{
+        grid-template-columns: repeat(2,1fr);
+     }
+
+     .diets{
+        grid-column: 1/-1; /* take full space of the row till end */
+        justify-self: center;
+     }
+
+     .heading-secondary{
+        margin-bottom: 4rem;
+
+     }
+     .pricing-plan--complete::after{
+        padding: 0.4rem 4rem;
+     }
+
+     .grid--footer{
+        grid-template-columns: repeat(6,1fr);
+
+     }
+
+     .nav-col{
+        grid-row: 1;
+        grid-column: span 2; /* each column span twice */
+        margin-bottom: 2.5rem;
+     }
+
+     .logo-col, .address-col{
+        grid-column: span 3;
+     }
+
+}
+
+@media (max-width:560px){
+    .grid--2--cols,.grid--3--cols, .grid--4--cols{
+        grid-template-columns: 1fr;
+     }
+
+     .hero{
+        padding: 0 2.8rem;
+     }
+
+     .section-hero{
+        background-color: #fdf2e9;
+        padding: 2rem 0 5.5rem 0;
+    }
+
+    .btn, .btn:link, .btn:visited{
+        padding: 2rem 1.8rem;
+
+    }
+
+    .hero-img{
+        width: 80%;
+    }
+
+    .logos img{
+        height: 0.9rem;
+    }
+
+    .logo{
+        height: 1.75rem;
+    }
+
+    .step-img-box:nth-child(2){
+        grid-row: 1;
+    }
+
+    .step-img-box:nth-child(6){
+        grid-row: 5;
+    }
+
+    .step-img-box{
+        transform: translateY(2.4rem);
+    }
+    
+    .testimonials{
+        grid-template-columns: 1fr;
+    }
+
+    .gallery{
+        grid-template-columns: repeat(4,1fr);
+        gap: 0.8rem;
+    }
+
+    .cta{
+        grid-template-columns: 1fr;
+    }
+
+    .cta-img-box{
+        height: 26rem;
+        grid-row: 1;
+    }
+
+    .cta-text-box{
+        padding: 3.2rem
+    
+    }
+}

@@ -1,0 +1,835 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 81.5%;
+
+    /* does not work on old safari so need to write js */
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "Rubik",sans-serif;
+    font-weight: 400;
+    color: #555;
+    line-height: 1;
+}
+
+.section-hero{
+    background-color: #fdf2e9;
+    padding: 4rem 0 9rem 0;
+}
+
+ .hero {
+    max-width: 110rem;
+    margin: 0 auto;
+    display: grid;
+    padding: 0 2.4rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 9.3rem;
+}
+
+.hero-img{
+    width: 100%;
+}
+
+.heading-primary, .heading-secondary{
+    font-weight: 700;
+    color: #333;
+    color: #45260a;
+    letter-spacing: -0.5px;
+}
+
+.heading-primary{
+    font-size: 4.2rem;
+    line-height: 1;
+    margin-bottom: 3rem;
+}
+
+.heading-secondary{
+    line-height: 1.05rem;
+    font-size: 3rem;
+    margin-bottom: 8rem;
+}
+
+.subheading{
+    display: block;
+    font-size: 1.6rem;
+    color: #cf711f;
+    font-weight: 500;
+    letter-spacing: 0.75px;
+    margin-bottom: 1.8rem;
+    text-transform: uppercase;
+}
+
+.hero-description{
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 4rem;
+}
+
+
+
+.btn, .btn:link, .btn:visited {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.4rem;
+    border-radius: 9px;
+    padding: 1.2rem 3rem;
+    font-weight: 600;
+    border: none;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    
+}
+
+.btn--full:link ,.btn--full:visited{
+    background-color: #e67e22;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.btn--full:hover ,.btn--full:active {
+    background-color: #cf711f;
+   
+}
+
+.btn--outline:link ,.btn--outline:visited{
+    background-color: #fff;
+    color: #555;
+}
+
+.btn--outline:hover ,.btn--outline:active {
+    background-color: #fdf2e9;
+    /* trick to set border inside */
+    box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form{
+    background-color: #45260a;
+    color: #fdf2e9;
+    align-self: end;
+    padding: 0.6rem;
+}
+
+.btn--form:hover{
+    background-color: #fff;
+    color: #555;
+}
+
+.margin-right-sm{
+    margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md{
+margin-bottom:3.8rem !important;
+}
+
+.delivered-meals{
+   display: flex;
+   gap: 1.6rem;
+   align-items: center;
+  margin-top: 6rem;
+
+}
+
+.delivered-imgs{
+    display: flex;
+    
+}
+
+.delivered-imgs img{
+    height: 3.8rem;
+    width: 3.8rem; /* not needed but may cause issue in safari brower so applied width after height */
+    border-radius: 50%;
+    margin-right: -1.1rem; /* to make images overlap to each other */
+    border: 2px solid #fdf2e9;
+}
+.delivered-text{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.delivered-text span{
+    color: #cf711f;
+    font-weight: 700;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   background-color: #fdf2e9;
+   /* giving height because we want header to be stikcy later on, so if not sticky we can manage with padding on all 4 sides */
+   height: 7.4rem;
+   padding: 0 2.8rem;
+   position: relative; /* set only for mobile nav */
+
+}
+.logo{
+    height: 2.4rem;
+}
+
+/************** MOBILE NAVIGATION **********/
+
+.btn-mobile-nav{
+border: none;
+background: none;
+cursor: pointer;
+
+display: none; /* by default it should not appear fro desktop */
+}
+
+.icon-mobile-nav{
+height: 4.8rem;
+width: 4.8rem;
+color: #333;
+}
+
+.icon-mobile-nav[name="close-outline"]{
+   display: none; 
+    }
+
+
+/************** STICKY NAVIGATION **********/
+
+.sticky .header{
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   width: 100%;
+   height: 8rem;
+   background-color: rgba(255, 255, 255, 0.97);
+   z-index: 999;
+   padding-top: 0;
+   padding-bottom: 0;
+   box-shadow: 0 1.2rem 3.2rem rgba(0,0,0,0.03);
+}
+
+
+/* this is only when sticky is applied the add the margin so that flicker of content doesn't appear*/
+.sticky .section-hero{
+   margin-top: 9.6rem;
+}
+
+
+/************** NAVIGATION **********/
+
+.main-nav-list{
+display: flex;
+align-items: center;
+list-style: none;
+gap: 4rem;
+}
+
+.main-nav-link:link, .main-nav-link:visited{
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+}
+
+.main-nav-link:hover, .main-nav-link:active{
+background-color: #cf711f;
+}
+
+
+/* .main-nav-link.nav-cta means this style will be applied to that element which has the two both classes only, so . is used to conact them */
+.main-nav-link.nav-cta:link, .main-nav-link.nav-cta:visited{
+   padding: 0.8rem 1.8rem;
+   border-radius: 9px;
+   color: #fff;
+   background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover, .main-nav-link.nav-cta:active{
+    background-color: #cf711f;
+ }
+
+
+ .section-how{
+    padding: 8.3rem 0;
+ }
+
+ .grid{
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 6rem;
+ }
+
+ .grid:not(:last-child){
+    margin-bottom: 6rem;
+ }
+
+
+
+ .grid--center-v{
+    align-items: center;
+ }
+
+ .grid--2--cols{
+    grid-template-columns: repeat(2,1fr);
+ }
+
+ .grid--3--cols{
+    grid-template-columns: repeat(3,1fr);
+ }
+
+ .grid--4--cols{
+    grid-template-columns: repeat(4,1fr);
+ }
+ .grid--5--cols{
+    grid-template-columns: repeat(5,1fr);
+ }
+ .container{
+    max-width: 120rem;
+    padding: 0 6.4rem;
+    margin: 0 auto;
+ }
+
+
+ .step-img{
+    width: 35%;
+ }
+
+ .step-img-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* this is set just to make this parent as relative so that before psuedo elment can be set with transform */
+ }
+
+ .step-img-box::before, .step-img-box::after{
+    content: "";
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+ }
+
+ .step-img-box::before{
+    width: 55%;
+    padding-bottom:55% ;
+    background-color: #fdf2e9;
+    z-index: -2; /* set the negative value so this goes behind it parent, that is image  it as much high negative value that much behind it will be*/ 
+
+ }
+
+ .step-img-box::after{
+    width: 42%;
+    padding-bottom:42% ;
+    background-color: #fae5d3;
+    z-index: -1; /* behind the image but on top of the first bigger circle, because its negative value is lower than bigger circle */
+
+ }
+
+ .step-number{
+    font-size: 7.2rem;
+    font-weight: 600;
+    color: #ddd;
+    margin-bottom: 1rem;
+ }
+
+ .heading-tertiary{
+    font-size: 2.8rem;
+    line-height: 1;
+    margin-bottom: 2.5rem;
+ }
+
+ .step-description{
+
+    font-size: 1.2rem;
+    line-height: 1.5;
+ }
+
+
+ /************** FEATURED IN **********/
+
+ .section-featured{
+    padding: 3.5rem 0 2.8rem 0;
+ }
+
+ .heading-featured-in{
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #888;
+ }
+
+ .logos{
+    display: flex;
+    justify-content: space-around;
+ }
+
+ .logos img{
+    height: 3rem;
+    filter: brightness(0);
+    opacity: 50%; /* also we can use 0.5 instead of 50% */
+ }
+
+
+ /************** MEALS SECTION **********/
+
+ .section-meals{
+   padding: 8.3rem 0;
+ }
+
+ .meal-img{
+    width: 100%;
+ }
+
+ .center-text{
+    text-align: center;
+ }
+
+ .meal-title{
+    font-size: 2rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 2.8rem;
+ }
+
+ .meal-attributes{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+ }
+
+ .meal-attribute{
+    font-size: 1.8 rem;
+    display: flex;
+   align-items: center;
+   gap: 0.8rem;
+ }
+
+ .meal-icon{
+    height: 1.4rem;
+    width: 1.4rem;
+    color: #e67e22;
+ }
+
+ strong{
+    font-weight: 500;
+ }
+
+ .tag{
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+    color: #333;
+    text-transform: uppercase;
+    border-radius: 100px;
+    font-weight: 600;
+ }
+
+ .tag--vegtarian{
+    background-color: #51cf66;
+ }
+ .tag--vegan{
+    background-color: #94d82d;
+ }
+ .tag--paleo{
+    background-color: #ffd43b;
+ }
+
+ .meal-tags{
+margin-bottom: 1rem;
+display: flex;
+gap: 0.4rem;
+ }
+
+ .meal{
+    box-shadow: 0 2.4rem 4rem rgba(0, 0, 0, 0.1);
+    border-radius: 11px;
+    overflow: hidden; /* so that curve border is applied to image as well */
+    transition: all 0.4s;
+ }
+
+ .meal:hover{
+    transform: translateY(-1.2rem); /* this is to move up by 1.2rem when hovered */
+    box-shadow: 0 3.4rem 5rem rgba(0, 0, 0, 0.08);
+    
+ }
+
+ .meal-content{
+    padding: 2.4rem 3.2rem 3.2rem 3.2rem;
+ }
+
+ .list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+ }
+
+ .list-icon{
+    width: 1.7rem;
+    height: 1.7rem;
+    color: #e67e22;
+ }
+
+ .list-item{
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+     gap: 1rem;
+     line-height: 1.2;
+ }
+
+ .all-recipes{
+    text-align: center;
+    font-size: 1.6rem;
+ }
+
+ .link:link, .link:visited{
+    display: inline-block;
+    text-decoration: none;
+    color: #e67e22;
+    border-bottom: 1px solid currentColor ;
+    padding-bottom: 2px;
+    transition: all 0.3s;
+ }
+
+ link:active, .link:hover{
+    /* we need to remove underline when active or hover */
+   color: #cf711f;
+   /* border-bottom:none ;  this will cause design to move or down when we hover on link by 2px, */
+    /* that will be visible hence we can use transparent property  */
+    border-bottom: 1px solid transparent;
+
+ }
+
+ /************** Testimonials Section **********/
+
+ .section-testimonials{
+    background-color:#fdf2e9 ;
+    display: grid;
+    grid-template-columns: 60fr 40fr;
+    align-items: center;
+ }
+
+ .testimonials-container{
+    padding: 8rem;
+ }
+ .testimonials{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 3.8rem;
+    column-gap: 6rem;
+   
+ }
+
+ .testimonial-img{
+    width: 6rem;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+ }
+
+ .testimonial-text{
+font-size: 1.6rem;
+line-height: 1.4;
+margin-bottom: 1rem;
+ }
+
+ .testimonial-name{
+font-size: 1.4rem;
+color: #6F6F6F;
+ }
+
+ .gallery{
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap: 1.2rem;
+padding: 1.2rem;
+ }
+
+ .gallery-item{
+    overflow: hidden; /* used because when we scale, image grows out from its parent so we scale it but hide overflow from parent */
+ }
+
+.gallery-item img{
+    display: block; /* because img is inline so that cuases litlle spacing in multiple imgs, so to remove that used block */
+    width: 100%;
+    transition: all 0.4s;
+}
+
+.gallery-item img:hover{
+    transform: scale(1.1);
+}
+.testimonial-heading{
+line-height: 2.8rem !important;
+}
+
+
+ /************** Pricing Section **********/
+
+ .section-pricing{
+    padding: 8.3rem 0;
+ }
+
+.pricing-plan{
+border-radius: 11px;
+width: 70%;
+}
+
+.pricing-plan--starter{
+    justify-self: end; /* make horizonatlly alignment to reach the grid's 1st cell end */
+    padding: 3.2rem;
+    border: 2px solid #fdf2e9;
+
+}
+
+.pricing-plan--complete{
+    background-color: #fdf2e9;
+    padding: 3.4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-plan--complete::after{
+    content: "Best value";
+    text-transform: uppercase;
+    position: absolute;
+    top: 7%;
+    right: -10%;
+    background-color: #ffd43b;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 0.6rem 4rem;
+   transform: rotate(45deg);
+  
+}
+ .plan-header{
+    text-align: center;
+    margin-bottom: 4rem;
+ }
+
+.plan-name {
+    color: #cf711f;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.65;
+    margin-bottom: 3.2rem;
+}
+.plan-price{
+    font-size: 6rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1.6rem;
+
+}
+
+.plan-price span{
+    font-size: 2.8rem;
+    font-weight: 500;
+    margin-right: 0.7rem;
+}
+.plan-text{
+  
+font-size: 1.4rem;
+line-height: 1.4;
+color: #6F6F6F;
+
+}
+
+.plan-sign-up{
+text-align: center;
+margin-top: 4rem;
+}
+
+.plan-details{
+    font-size: 1.4rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+
+.feature-icon{
+    color: #e67e22;
+    height: 3rem;
+    width: 3rem;
+    background-color: #fdf2e9;
+    border-radius: 50%;
+    padding: 1.2rem;
+    margin-bottom: 2.8rem;;
+
+}
+.feature-title{
+font-size: 2.4rem;
+color: #333;
+font-weight: 700;
+margin-bottom: 1.6rem;
+}
+.feature-text{
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+
+}
+
+ /************** CTA Section **********/
+
+
+.section-cta{
+    /* top, right,bottom,left (padding order) */
+    padding: 4rem 0 10rem 0;
+}
+.cta-container{
+    max-width: 90rem !important;
+}
+.cta{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    box-shadow: 0 2.4rem 4rem rgba(0, 0, 0, 0.15);
+    border-radius: 11px;
+   background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+    overflow: hidden;
+
+}
+.cta-text-box{
+    padding: 3.8rem 5.4rem 5.4rem 5.4rem;
+    color: #45260a;
+
+}
+
+.cta .heading-secondary{
+    color: inherit; /* inherits its parents color */
+    line-height: 1.2;
+    margin-bottom: 2.7rem;
+}
+
+.cta-text{
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-bottom: 2.8rem;
+}
+.cta-img-box{
+background-image:linear-gradient(to right bottom, rgba(235,151,78,0.3), rgba(230,125,34,0.3)), url("../content/img/eating.jpg");
+background-size: cover;
+background-position: center;
+}
+
+.cta-form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.8rem;
+    row-gap: 1.8rem;
+}
+
+.cta-form label{
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom:1rem ;
+
+
+}
+
+.cta-form input,.cta-form select{
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1.3rem;
+    font-family: inherit;
+    color: inherit;
+    border: none;
+    background-color: #fdf2e9;
+    border-radius: 9px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-form input::placeholder{
+    color: #aaa;
+}
+
+.cta *:focus{
+    outline: none;
+    box-shadow: 0 0 0 0.5rem rgba(253, 242, 233, 0.5);
+}
+
+ /************** FOOTER **********/
+
+ .footer{
+    padding: 10rem 0;
+    border-top:1px solid #eee ;
+ }
+
+ .grid--footer{
+    grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+ }
+
+ .footer-heading{
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+ }
+
+ .footer-nav{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+   
+ }
+
+ .footer-link:link,
+ .footer-link:visited {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: #767676;
+    transition: all 0.3s;
+ }
+
+ .footer-link:active, .footer-link:hover{
+    color: #555;
+ }
+
+ .footer-logo{
+    display: block; /* need to nake it block level or inline block else margin property is not applied on inline */
+    margin-bottom: 3rem;
+ }
+ .social-links{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+ }
+
+ .social-icon{
+    height: 2.4rem;
+    width: 2.4rem;
+ }
+
+ .logo-col{
+    display: flex;
+    flex-direction: column;
+ }
+
+ .copyright{
+font-size: 1.2rem;
+line-height: 1.4rem;
+color: #767676;
+margin-top: auto;  /* parent is flex, hence if we want any elemnt to touch the end point we can use margin-top auto trick */
+ }
+
+ .contacts{
+    font-style: normal;
+    font-size: 1.4rem;
+    line-height: 1.4;
+ }
+
+ .address{
+    margin-bottom: 2.8rem;
+ }
