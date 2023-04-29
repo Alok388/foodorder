@@ -1,20 +1,21 @@
 const btnNavEl = document.querySelector(".btn-mobile-nav");
 const headerEl = document.querySelector(".header")
 
-document.addEventListener('click',(()=>{
+btnNavEl.addEventListener('click',(()=>{
     headerEl.classList.toggle("nav-open");
 }))
 
-const allLinks = document.querySelectorAll("a");
+const allLinks = document.querySelectorAll("a:link");
 
 // close nav when clicked on the nav item links
-allLinks.forEach((link)=>{
+allLinks.forEach((link)=> {
+    link.addEventListener("click", function (e) {
+        // Close mobile naviagtion
+        if (link.classList.contains("main-nav-link"))
+          headerEl.classList.toggle("nav-open");
+      });
 
-if(link.classList.contains('main-nav-link')){
-    headerEl.classList.remove("nav-open");
-}
-})
-
+    })
 // sticky navigation
 // make the navigation STICKY only after the HERO SECTION
 // 
